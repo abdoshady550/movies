@@ -1,7 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-const NavBar = () => {
+const NavBar = ({search}) => {
+  const onSearch=(word)=>{
+    search(word)
+  }
   return (
     <div className="nav-style ">
       <Container className="">
@@ -14,7 +17,7 @@ const NavBar = () => {
           </Col>
           <Col lg="8">
             <div className=" search">
-            <input type="text"  placeholder="     Search..." />
+            <input onChange={(e)=>onSearch(e.target.value)} type="text"  placeholder="     Search..." />
             </div>
           </Col>
         </Row>

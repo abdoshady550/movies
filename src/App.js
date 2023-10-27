@@ -39,6 +39,7 @@ function App() {
   }, []);
 
   return (
+    
     <div className="App">
       <NavBar search={search} />
       <Container >

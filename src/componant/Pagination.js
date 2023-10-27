@@ -1,48 +1,32 @@
-import React, { useState } from 'react';
-import Pagination from 'react-bootstrap/Pagination';
+import React from "react";
+import ReactPaginate from "react-paginate";
+import { Pagination } from "react-bootstrap";
 
-const PaginationComponant = ({ getPage }) => {
-  const [pageNum, setPageNum] = useState(1);
-
-  const onPage = (page) => {
-    if (page >= 1 && page <= 500) {
-      setPageNum(page);
-      getPage(page);
-    }
+const PaginationComponant = ({ pageCount, getPage }) => {
+  const handlePageClick = (data) => {
+    getPage(data.selected+1)
   };
-
-  const goToNextPage = () => {
-    const nextPage = pageNum + 1;
-    if (nextPage <= 500) {
-      onPage(nextPage);
-    }
-  };
-
-  const goToPrevPage = () => {
-    const prevPage = pageNum - 1;
-    if (prevPage >= 1) {
-      onPage(prevPage);
-    }
-  };
-
+  if(pageCount>500)pageCount=500;
   return (
-    <Pagination className="justify-content-center p3">
-      <Pagination.First onClick={() => onPage(1)} />
-      <Pagination.Prev onClick={goToPrevPage} />
-
-      <Pagination.Item onClick={() => onPage(1)}>{1}</Pagination.Item>
-      <Pagination.Item onClick={() => onPage(2)}>{2}</Pagination.Item>
-      <Pagination.Item onClick={() => onPage(3)}>{3}</Pagination.Item>
-      <Pagination.Item onClick={() => onPage(4)}>{4}</Pagination.Item>
-      <Pagination.Item onClick={() => onPage(5)}>{5}</Pagination.Item>
-      <Pagination.Item onClick={() => onPage(6)}>{6}</Pagination.Item>
-
-      <Pagination.Ellipsis />
-      <Pagination.Item onClick={() => onPage(400)}>{400}</Pagination.Item>
-      <Pagination.Ellipsis />
-      <Pagination.Next onClick={goToNextPage} />
-      <Pagination.Last onClick={() => onPage(500)} />
-    </Pagination>
+    <ReactPaginate
+      breakLabel="..."
+      nextLabel="next >"
+      onPageChange={handlePageClick}
+      marginPagesDisplayed={2}
+      ReactPaginate={2}
+      pageCount={pageCount}
+      previousLabel="< previous"
+      containerClassName={"pagination justify-content-center p-3"}
+      pageClassName={"page-item"}
+      pageLinkClassName={"page-link"}
+      previousClassName={"page-item"}
+      nextClassName={"page-item"}
+      previousLinkClassName={"page-link"}
+      nextLinkClassName={"page-link"}
+      breakLinkClassName={"page-link"}
+      breakClassName={"page-item"}
+      activeClassName={'active'}
+    />
   );
 };
 

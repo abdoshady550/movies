@@ -9,12 +9,15 @@ const NavBar = ({search}) => {
     <div className="nav-style ">
       <Container className="">
         <Row className="nav-align">
+         
           <Col lg="2">
-            <div className="fs-1  name-logo">Cinema-TV </div>
-          </Col>
+            <a  className="fs-1  name-logo" href='/' >
+            <div  className="fs-1  name-logo">Cinema-TV </div></a>
+            </Col>
           <Col lg="2">
             <img className="logo" src="/img/l1.png " alt="logo" />
           </Col>
+          
           <Col lg="8">
             <div className=" search">
             <input onChange={(e)=>onSearch(e.target.value)} type="text"  placeholder="     Search..." />

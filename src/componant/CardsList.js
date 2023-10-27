@@ -2,7 +2,7 @@ import React from 'react'
 import Items from './Items'
 import { Row } from 'react-bootstrap'
 import  Pagination  from './Pagination';
-const CardsList = ({ movies,getPage }) => {
+const CardsList = ({ movies,getPage,pageCount }) => {
 
   return (
 
@@ -12,7 +12,7 @@ const CardsList = ({ movies,getPage }) => {
       })) 
       : (<div style={{height:'20vh', backgroundColor: 'white', marginTop: '50px' }}>
          <h1 style={{ color: '#000304', textAlign: 'center', fontSize: '50px',marginTop: '50px' }}> Oops ! NOT Found 🤷</h1></div>)}
-         <Pagination  getPage={getPage}/>   
+         {movies.length >= 1 ?( <Pagination pageCount={pageCount}  getPage={getPage}/> ):null}   
     </Row>
   )
 }

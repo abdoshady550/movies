@@ -1,19 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import { Pagination } from "react-bootstrap";
+import { AllPages, getPage } from "./../redux/action/MoviesActions";
+import { useDispatch, useSelector } from "react-redux";
 
-const PaginationComponant = ({ pageCount, getPage }) => {
-  const handlePageClick = (data) => {
-    getPage(data.selected+1)
+const PaginationComponant = () => {
+  const allDataPages = useSelector((state) => state.Movies.pages);
+
+  const [pageCount, setPageCount] = useState(0);
+  const dispatcher = useDispatch();
+
+  useEffect(() => {
+    setPageCount(allDataPages);
+  }, [allDataPages]);
+
+  useEffect(() => {
+    dispatcher(AllPages());
+    
+  }, [dispatcher]);
+
+  const handlePageClick = (word) => {
+    dispatcher(getPage(word.selected + 1));
   };
-  if(pageCount>500)pageCount=500;
+  if (pageCount > 500) setPageCount(500);
   return (
     <ReactPaginate
       breakLabel="..."
       nextLabel="next >"
       onPageChange={handlePageClick}
-      marginPagesDisplayed={2}
-      ReactPaginate={2}
+      marginPagesDisplayed={3}
+      ReactPaginate={3}
       pageCount={pageCount}
       previousLabel="< previous"
       containerClassName={"pagination justify-content-center p-3"}
@@ -25,7 +40,7 @@ const PaginationComponant = ({ pageCount, getPage }) => {
       nextLinkClassName={"page-link"}
       breakLinkClassName={"page-link"}
       breakClassName={"page-item"}
-      activeClassName={'active'}
+      activeClassName={"active"}
     />
   );
 };

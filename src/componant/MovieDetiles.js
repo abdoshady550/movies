@@ -31,8 +31,8 @@ const MovieDetails = () => {
           />
         
            <div className="d-flex justify-content-center">
-            <a href={movie.homepage}>
-          <button  className="btn-style">Watch now</button>
+            <a target='_blank' href={movie.homepage}>
+          <button   className="btn-style">Watch now</button>
           </a>
         </div>
         </Col>

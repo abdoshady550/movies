@@ -105,7 +105,6 @@ body {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
-    justify-content: center;
     flex-wrap: nowrap;
     padding-top: 10px;
 }
@@ -113,7 +112,7 @@ body {
 
 .search input {
 
-    margin-left: 90px;
+   
     border-radius: 15px;
     width: 50%;
 

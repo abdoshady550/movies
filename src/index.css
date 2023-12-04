@@ -123,19 +123,26 @@ a{
 }
 
 
-.search input {
+.search-sty  {
 
    
-    border-radius: 15px;
-    width: 50%;
+    border-radius:5px;
+    
 
-    height: 7vh;
-    margin-top: 50px;
-    outline: none;
+    width: 50%
+   
+   
 }
-
-.search input:hover {
-    width: 85%;
+.nevy-top{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row-reverse;
+}
+.search-sty:hover {
+    width: 90%;
     transition: 2s;
 }
 

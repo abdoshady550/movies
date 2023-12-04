@@ -67,7 +67,9 @@ body {
     width: 60px;
     border-radius: 60px;
 }
-
+a{
+    text-decoration: none;
+}
 .font-arab {
     /* font-family: 'Cairo', sans-serif; */
     /* font-family: 'Lobster', sans-serif;
@@ -84,19 +86,30 @@ body {
 }
 
 .logo {
-    width: 18vh;
-    height: 18vh;
-    margin-right: -70px;
+    height: 46px;
+    width: 50px;
+  }
+  .login-img {
+    height: 20px;
+    width: 20px;
+  }
+  .nav-text {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .bg-van{
+    --bs-bg-opacity: 0.9;
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
 
-
-}
-
+  }
 .name-logo {
     color: #dedede;
     font-family: 'Cairo', sans-serif;
     font-weight: bold;
-    margin-top: -10px;
-    margin-left: -70px;
+    margin-top: -5px;
+    margin-left: -25px;
+    padding-right: 10px;
     text-decoration: none;
 
 }
